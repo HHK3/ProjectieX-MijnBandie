@@ -17,6 +17,6 @@
   
 | Milestone        | Status           | Link  |
 | ------------- |:-------------:| -----:|
-| README      | DONE | $1600 |
-|Debriefing      | DONE      |   |
-| zebra stripes | are neat      |    $1 |
+| README          | DONE | [readme.md]   |
+| Debriefing      | DONE |  [Debriefing]  |
+| Plan van Aanpak | TODO |     |
