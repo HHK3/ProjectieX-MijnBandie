@@ -5,7 +5,7 @@
 #### Mijn Milestones  
 | Milestone        | Status           | Link  |
 | ------------- |:-------------:| -----:|
-| README              | DONE | [readme.md]   |
+| README              | DONE | [README.md]   |
 | Debriefing          | DONE | [Debriefing]  |
 | Plan van Aanpak     | TODO |     |
 | Functioneel Ontwerp | TODO |     |
