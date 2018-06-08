@@ -7,7 +7,7 @@
 | ------------- |:-------------:| -----:|
 | README              | DONE | [README.md]   |
 | Debriefing          | DONE | [Debriefing]  |
-| Plan van Aanpak     | TODO | [Plan van Aanpak]  |
+| Plan van Aanpak     | DONE | [Plan van Aanpak]  |
 | Functioneel Ontwerp | TODO |     |
 | Backlog             | TODO |     |
 | Live Website        | TODO |     |
