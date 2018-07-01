@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf71861d-8c01-493f-ba33-00b3c608a1d7" name="Default" comment="Huge Update Commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/smarty/libs - Verknüpfung.lnk" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/text.txt" afterPath="" />
+    <list default="true" id="cf71861d-8c01-493f-ba33-00b3c608a1d7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/public/fonts/Splatfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/public/img/achtergrond.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/public/img/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/connection.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/controller.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/model.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/15a440ddf44829f2af92863137f13ce26748da82_0.file.footer.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/1e90f7ed180f637b8e41469413b7550686c61a93_0.file.menu.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/22d56ed347741ed2e6563d3532c2c9560f5ba6b5_0.file.notfound.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/2d395c29cf26c72ea5c24f8c9d04faae832b481b_0.file.header.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/33065040f62dd6591d10cc18699233c0ea52efe8_0.file.header.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/3e4455a2396689a0a2456c4d150d3a9bcf12aa9b_0.file.header.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/3ed0a122c84279e74e66ab27e119f33c40b9951c_0.file.logout.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/55c58704b7f91a1141f938e99b9483e5d0083b8c_0.file.admin.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/83a3dd43de149e643c78222b1c318cab2c346e81_0.file.menu.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/8a378c413a917646e8a5eef21256e20fd61a6cc2_0.file.menu.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/8aab42342fc708310ed51869da198a3b318aaffd_0.file.edit.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/a30bf6b5b6f422a2ceee8ae6680f2701480745e2_0.file.news.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/a32e63a62eea70cfe603cae9ba32dfb8b72a3297_0.file.footer.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/b19457e3d666f6e6dc01ce75f04a4adbd4562ac0_0.file.home.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/b91bfcb755a32b60ec1ab7e3ae05da587888bce8_0.file.login.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/ba321b215243ded0ee729408d4701882bc0145fd_0.file.home.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/bd9ad602ed785cf75d7331158bba46af9d0a5a84_0.file.home.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/c1b4d3f63f5922bfbdc7f3367c05cd152a7fac19_0.file.register.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/c5baec574068301b76b415689fbfd988420d80a4_0.file.menu_logged_in.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/cb189b1f11f9688fc74fa1732f5ad5b97b0e9ee7_0.file.footer.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/cbf233f374e21f2e376de569906eae5462d57c60_0.file.contact.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/cdf769bf03a72b3d1bdcab94ab55ff4e46e6485f_0.file.admin_menu.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/cf4ee10a413d024beb82e16f04c20b0cd75eeb11_0.file.news.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/d2d81fe02684483dab18decb96ed5ba97553b2c4_0.file.contact.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/tmp/fdd8d2d597482354a26cae00bd52fe0a6c7101d4_0.file.notfound.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/admin.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/admin_menu.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/admin_success.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/contact.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/edit.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/footer.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/header.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/home.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/login.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/logout.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/menu.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/menu_logged_in.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/news.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/news_article.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/notfound.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/private/views/register.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/public/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/public/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mvc/public/scripts/navbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -128,6 +177,20 @@
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="fonts" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ProjectieX-MijnBandie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectieX-MijnBandie" type="462c0819:PsiDirectoryNode" />
+              <item name="mvc" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjectieX-MijnBandie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectieX-MijnBandie" type="462c0819:PsiDirectoryNode" />
+              <item name="mvc" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -141,11 +204,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../tpr" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-  </component>
-  <component name="Push.Settings">
-    <excluded-roots>
-      <path value="$PROJECT_DIR$/mvc" />
-    </excluded-roots>
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -253,7 +312,7 @@
       <option name="presentableId" value="Default" />
       <updated>1530473359779</updated>
       <workItem from="1530473363005" duration="116000" />
-      <workItem from="1530473484823" duration="297000" />
+      <workItem from="1530473484823" duration="394000" />
     </task>
     <task id="LOCAL-00001" summary="Test Commit">
       <created>1530473417263</created>
@@ -276,11 +335,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530473619737</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Huge Update Commit">
+      <created>1530473792156</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1530473792156</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="413000" />
+    <option name="totallyTimeSpent" value="510000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -321,6 +387,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/mvc" />
+    </ignored-roots>
     <MESSAGE value="Test Commit" />
     <MESSAGE value="Huge Update Commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Huge Update Commit" />
