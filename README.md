@@ -2,7 +2,6 @@
 Festival Strand is een website dat ontwikkeld wordt door Joël voor het ProjectieX-MijnBandie. Het houdt mensen op de hoogte van het laatste nieuws rondom het Festival, informatie en meer.  
   
 Link Officiële Website: http://www.festivalstrand.nl/  
-Link Fan Website (van Joël): Binnenkort  
 
 ---
 #### Mijn Milestones  
