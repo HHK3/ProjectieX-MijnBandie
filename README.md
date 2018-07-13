@@ -13,7 +13,7 @@ Link Officiële Website: http://www.festivalstrand.nl/
 | Functioneel Ontwerp | DONE | [Functioneel Ontwerp]    |
 | Backlog             | DONE | [Backlog]   |
 | Online Website      | DONE | [Online Website]    |
-| Volledige Website   | TODO |     |
+| Volledige Website   | DONE | [Online Website]    |
 
    [README.md]: <https://github.com/HHK3/ProjectieX-MijnBandie/blob/master/README.md>
    [Debriefing]: <https://drive.google.com/open?id=1laJ70zzzDTCWhToKNP-2jUmWmPEtBy-u>
