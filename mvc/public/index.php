@@ -39,13 +39,6 @@ $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 //    }
 //}
 
-if (isset($_POST['submit_register'])) {
-    verify_register();
-}
-
-if (strpos($fullUrl, "mailadres=$mailadres&hash=$hash") == true) {
-    verify_account();
-}
 
 if (isset($_POST['submit_login'])) {
     verify_login();
@@ -53,6 +46,10 @@ if (isset($_POST['submit_login'])) {
 
 if (isset($_POST['submit_logout'])) {
     verify_logout();
+}
+
+if (isset($_POST['submit_add'])) {
+    verify_add();
 }
 
 if (isset($_POST['submit_edit'])) {
@@ -63,45 +60,42 @@ if (isset($_POST['submit_delete'])) {
     verify_delete();
 }
 
-//if (isset($_POST['submit_edit'])) {
-//    verify_edit();
-//}
+if (isset($_POST['submit_contact'])) {
+    verify_mail();
+}
 
-
-//if (strpos($fullUrl, "article_id=$artID&article_title=$artTit&article_content=$artCont") == true) {
-//    edit_action();
-//}
-
-
-if (isset($_SESSION['username'])){
-    if ($_SESSION['username'] == 'HooHahKong') {
+if (isset($_SESSION['username']) && $_SESSION['username']== 'HooHahKong'){
         switch ($page) {
             case 'home' : homepage_action(); break;
             case 'news' : news_action(); break;
             case 'contact' : contact_action(); break;
             case 'logout' : logout_action(); break;
+            case 'news_article' : article_action($artID); break;
+            case 'add' : add_action(); break;
             case 'admin' : admin_action(); break;
             case 'edit' : edit_action(); break;
             default: page_not_found_action(); break;
         }
-    } else {
-        switch ($page) {
-            case 'home' : homepage_action(); break;
-            case 'news' : news_action(); break;
-            case 'contact' : contact_action(); break;
-            case 'logout' : logout_action(); break;
-            default: page_not_found_action(); break;
-        }
+} else {
+    switch ($page) {
+        case 'home' :
+            homepage_action();
+            break;
+        case 'news' :
+            news_action();
+            break;
+        case 'contact' :
+            contact_action();
+            break;
+        case 'login' :
+            login_action();
+            break;
+        case 'news_article' :
+            article_action($artID);
+            break;
+        default:
+            page_not_found_action();
+            break;
     }
-    exit();
-}
 
-switch ($page) {
-    case 'home' : homepage_action(); break;
-    case 'news' : news_action(); break;
-    case 'contact' : contact_action(); break;
-    case 'login' : login_action(); break;
-    case 'register' : register_action(); break;
-    default: page_not_found_action(); break;
 }
-

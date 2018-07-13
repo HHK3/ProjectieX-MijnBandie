@@ -4,12 +4,18 @@ function homepage_action() {
     global $page;
     global $smarty;
 
+    //MODEL
+    $articles = get_some_articles();
+    $smarty->assign('articles', $articles);
+    //VIEWS
     display_page($smarty, $page, 0);
 
 }
 
 function page_not_found_action() {
     global $smarty;
+
+    //VIEWS
     $smarty->display('notfound.tpl');
 }
 
@@ -18,13 +24,41 @@ function contact_action()
     global $admin;
     global $page;
     global $smarty;
+
+    //VIEWS
     display_page($smarty, $page, 0);
+}
+
+function add_action()
+{
+    global $page;
+    global $smarty;
+
+
+    //VIEWS
+    display_page($smarty, $page, 1);
 }
 
 function register_action()
 {
     global $page;
     global $smarty;
+
+
+    //VIEWS
+    display_page($smarty, $page, 0);
+}
+
+
+function article_action($artID)
+{
+    global $page;
+    global $smarty;
+
+    //MODEL
+    $article = get_article($artID);
+    $smarty->assign('article', $article);
+    //VIEWS
     display_page($smarty, $page, 0);
 }
 
@@ -32,12 +66,17 @@ function register_action()
  {
      global $page;
      global $smarty;
+
+     //VIEWS
      display_page($smarty, $page, 0);
  }
 
 function logout_action() {
     global $page;
     global $smarty;
+
+    //VIEWS
+
     display_page($smarty, $page, 1);
 }
  function admin_action() {
@@ -87,27 +126,9 @@ function news_action()
     //VIEWS
     display_page($smarty, $page, 0);
 }
- function display_page($smarty, $page, $admin) {
-     global $admin;
-     global $smarty;
-     $smarty->assign('title', strtoupper($page));
-     $smarty->display('header.tpl');
-     if (isset($_SESSION['username'])){
-         if ($_SESSION['username'] == 'HooHahKong'){
-             $smarty->display('admin_menu.tpl');
-         } else {
-             $smarty->display('menu_logged_in.tpl');
-         }
-     } else {
-         $smarty->display('menu.tpl');
-     }
-     $smarty->display($page . '.tpl');
-     $smarty->display('footer.tpl');
- }
-
 
 function edit_action() {
-    global $artID, $artTit, $artCont, $artIntro;
+    global $artID, $artTit, $artCont, $artIntro, $artImage;
 
     global $page;
     global $smarty;
@@ -116,5 +137,26 @@ function edit_action() {
     $smarty->assign('article_title', $artTit);
     $smarty->assign('article_intro', $artIntro);
     $smarty->assign('article_content', $artCont);
+    $smarty->assign('article_image', $artImage);
+
     display_page($smarty, $page, 1);
 }
+
+ function display_page($smarty, $page, $admin) {
+     global $admin;
+     global $smarty;
+     $smarty->assign('title', strtoupper($page));
+     $smarty->display('header.tpl');
+     if (isset($_SESSION['username']) && $_SESSION['username']== 'HooHahKong'){
+             $smarty->display('admin_menu.tpl');
+         } else {
+         $smarty->display('menu.tpl');
+     }
+     if (!isset($_SESSION['username'])) {
+         $smarty->display( 'sidebar.tpl');
+     }
+     $smarty->display($page . '.tpl');
+     $smarty->display('footer.tpl');
+ }
+
+

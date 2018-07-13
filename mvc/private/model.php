@@ -7,7 +7,22 @@ function make_connection() {
     }
     return $mysqli;
 }
+function get_article($artID) {
+    $mysqli = make_connection();
+    $query = "SELECT title, slug, body, imagelink FROM articles WHERE articleID = $artID";
+    $stmt = $mysqli->prepare($query) or die ('Error prep1');
+    $stmt->bind_result($title, $intro, $content, $imagelink) or die ('Error bind1');
+    $stmt->execute() or die ('Error exc1');
+    while ($stmt->fetch()) {
+        $article = array();
+        $article['title'] = $title;
+        $article['intro'] = $intro;
+        $article['content'] = $content;
+        $article['image'] = $imagelink;
+    }
+    return $article;
 
+}
 
 function get_articles() {
     $mysqli = make_connection();
@@ -68,101 +83,10 @@ function get_number_of_pages() {
     return $number_of_pages;
 }
 
-function verify_register() {
-    // Hoort de bezoeker hier uberhaupt wel te zijn?
-    if (!isset($_POST['submit_register'])) {
-        header('Location: index.php');
-    }
-
-//Zijn beide wachtwoorden gelijk?
-    if ($_POST['password1'] != $_POST['password2']) {
-        header('Location: index.php?page=register&register_error=password_error');
-        exit();
-    }
-
-//Bestaat deze username al?
-    $mysqli = make_connection();
-    $query = "SELECT userid FROM users WHERE username = ?";
-    $stmt = $mysqli->prepare($query)  or die ("Error prep1");
-    $stmt->bind_param('s', $username);
-    $username = $_POST['username'];
-    $result = $stmt->execute() or die ("Error querying1");
-    $row = $stmt->fetch(); //or die ('fetch1');
-    if ($row) {
-        header('Location: index.php?page=register&register_error=username_error');
-        exit();
-    }
-
-//Bestaat dit mailadres al?
-    $query = "SELECT userid FROM users WHERE mailaddress = ?";
-    $stmt = $mysqli->prepare($query) or die ("Error prep2");
-    $stmt->bind_param('s', $mailadres)  or die ("Error bind2");
-    $mailadres = $_POST['mail'];
-    $result = $stmt->execute() or die ('Error querying2');
-    $row = $stmt->fetch(); // or die ('fetch2');
-    if ($row) {
-        header('Location: index.php?page=register&register_error=email_error');
-        exit();
-    }
-
-//Gebruiker toevoegen aan database
-    $query = "INSERT INTO users VALUES (0, ?, ?, ?, ?, 0)";
-    $stmt = $mysqli->prepare($query)  or die ("Error prep3");
-    $username = $_POST['username'];
-    $mailadres = $_POST['mail'];
-    $randomnumber = rand(0,1000000);
-    $hash = hash('sha512', $randomnumber);
-    $password = hash('sha512', $_POST['password1']);
-    $stmt->bind_param('ssss', $username, $mailadres, $hash, $password)  or die ("Error bind3");
-    $result = $stmt->execute() or die ('Error inserting user.');
-
-
-//Gebruiker mailen
-    $to = $_POST['mail'];
-    $subject = 'Verifieer je account bij THE WALL';
-    $message = 'Klik op de volgende link om je account te activeren:';
-    $message = 'http://25061.hosts.ma-cloud.nl/myBand/public/index.php&mailadres=' . $mailadres . '&hash=' . $hash;
-    $headers = 'From: 25061@ma-web.nl';
-    mail($to, $subject, $message, $headers) or die ('Error mailing.');
-
-//Gelukt
-    header('Location: index.php?page=home&register=succesfull');
-    exit();
-}
-
-function verify_account() {
-    // Checken of mail klopt met hash
-    $mysqli = make_connection();
-    $query = "SELECT userid FROM users WHERE mailaddress = ? AND hash = ?";
-    $stmt = $mysqli->prepare($query) or die ('Error preparing for SELECT.');
-    $stmt->bind_param('ss', $mailadres, $hash);
-    $mailadres = $_GET['mailadres'];
-    $hash = $_GET['hash'];
-    $stmt->execute();
-    $stmt->bind_result($userid);
-    $row = $stmt->fetch();
-
-    if (!$userid) {
-        echo 'Sorry, maar deze combo van mailadres en hash ken ik niet';
-        exit();
-    }
-    $stmt->close();
-
-//Account activeren
-    $query = "UPDATE users SET active = 1 WHERE userid = ?";
-    $stmt = $mysqli->prepare($query) or die ('Error preparing for UPDATE');
-    $stmt->bind_param('i', $userid);
-    $stmt->execute() or die ('Error updating');
-
-//Gelukt
-    header('Location: index.php?page=home&verified=succesfull');
-    exit();
-}
-
 function verify_login() {
 
 // Hoort de bezoeker hier uberhaupt wel te zijn?
-    if (!isset($_POST['submit_log'])) {
+    if (!isset($_POST['submit_login'])) {
         header('Location: index.php');
     }
 
@@ -217,8 +141,6 @@ function verify_logout() {
 
 
 header('Location: index.php');
-
-
 }
 
 function verify_delete() {
@@ -241,12 +163,87 @@ function verify_edit() {
     $artTit = $_POST['article_title'];
     $artIntro = $_POST['article_intro'];
     $artCont = $_POST['article_content'];
+    $artImgHidden = $_POST['article_hidden_image'];
 
-    $mysqli = make_connection();
-    $query = "UPDATE articles ";
-    $query .= "SET title = '$artTit', slug = '$artIntro', body = '$artCont'";
-    $query .= "WHERE articleID = '$artID'";
-    $result = mysqli_query($mysqli, $query) or die ('Error updating');
-    header("Location: index.php?page=admin&success_editing=yes");
+    if ($_FILES['article_image']['size'] == 0) {
+        $mysqli = make_connection();
+        $query = "UPDATE articles ";
+        $query .= "SET title = '$artTit', slug = '$artIntro', body = '$artCont' ";
+        $query .= "WHERE articleID = '$artID'";
+        $result = mysqli_query($mysqli, $query) or die ('Error updating');
+        header("Location: index.php?page=admin&success_editing=yes");
+    } else {
+        $mysqli = make_connection();
+        $query = "SELECT articleID FROM articles WHERE imagelink = '$artImgHidden'";
+        $result = mysqli_query($mysqli, $query) or die ('Error deleting12343');
+        if ($result->num_rows == 0) {
+            $temp_location = $_FILES['article_image']['tmp_name'];
+            $target_location = 'images/' . time() . $_FILES['article_image']['name'];
+
+            move_uploaded_file($temp_location, $target_location);
+
+            $mysqli = make_connection();
+            $query = "UPDATE articles ";
+            $query .= "SET title = '$artTit', slug = '$artIntro', body = '$artCont', imagelink = '$target_location'";
+            $query .= "WHERE articleID = '$artID'";
+            $result = mysqli_query($mysqli, $query) or die ('Error updating');
+            header("Location: index.php?page=admin&success_editing=yes");
+        } else {
+            $file = $artImgHidden;
+
+            unlink($file);
+
+            $temp_location = $_FILES['article_image']['tmp_name'];
+            $target_location = 'images/' . time() . $_FILES['article_image']['name'];
+
+            move_uploaded_file($temp_location, $target_location);
+
+            $query = "UPDATE articles ";
+            $query .= "SET title = '$artTit', slug = '$artIntro', body = '$artCont', imagelink = '$target_location'";
+            $query .= "WHERE articleID = '$artID'";
+            $result = mysqli_query($mysqli, $query) or die ('Error updating');
+            header("Location: index.php?page=admin&success_editing=yes");
+        }
+    }
 }
+
+function verify_add()
+{
+    if (isset($_POST['submit_add'])) {
+        $temp_location = $_FILES['article_image']['tmp_name'];
+        $target_location = 'images/' . time() . $_FILES['article_image']['name'];
+
+        move_uploaded_file($temp_location, $target_location);
+
+
+        $title = $_POST['article_title'];
+        $intro = $_POST['article_intro'];
+        $content = $_POST['article_content'];
+
+
+        $mysqli = make_connection();
+        move_uploaded_file($temp_location, $target_location);
+        $query = "INSERT INTO articles VALUES (0, ?, ?, ?, ?)";
+        $stmt = $mysqli->prepare($query) or die ('Error preparing');
+        $stmt->bind_param('ssss', $title, $intro, $content, $target_location) or die ('Error binding params');
+        $stmt->execute() or die ('Error inserting image in database');
+        $stmt->close();
+
+        header('Location: index.php?page=add&success_adding=yes');
+        exit();
+    }
+}
+
+function verify_mail()
+{
+    $from     = 'From: ' . $_POST["from"];
+    $to       = "25061@ma-web.nl";
+    $content  = $_POST["content"];
+    $subject  = $_POST["subject"];
+    mail($to , $subject, $content, $from);
+    header('Location: index.php?page=contact&send_mail=success');
+}
+
+
+
 
